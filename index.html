@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Brenda Di-Hali | Pilates e Bem-Estar</title>
+    
+    <!-- Tailwind CSS para o Design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fontes Elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Facebook Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1985932372280352');
+      fbq('track', 'PageView');
+
+      function trackWhatsApp() {
+        fbq('track', 'Contact');
+      }
+    </script>
+
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #F9F7F2; color: #2D2D2D; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .glass-header { background: rgba(249, 247, 242, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(197, 160, 89, 0.1); }
+        .gold-button { background: #C5A059; color: white; padding: 14px 28px; border-radius: 9999px; font-weight: 500; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; text-align: center; }
+        .gold-button:hover { background: #D4B67A; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2); }
+        .card { background: white; padding: 40px; border-radius: 24px; border: 1px solid rgba(197, 160, 89, 0.1); box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: all 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <img src="https://i.ibb.co/QSSg0dz/Brown-Modern-Coffee-Shop-Logo-4.png" alt="Logo" class="h-12 w-auto">
+            <a href="https://wa.me/5534996623620" target="_blank" onclick="trackWhatsApp()" class="gold-button text-sm px-6 py-2">Agendar Aula</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://i.ibb.co/Wvkfx13y/brenda-di-hali-studio-de-pilates-ituiutaba-minas-gerais.jpg" class="w-full h-full object-cover" alt="Background">
+            <div class="absolute inset-0 bg-black/60"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl">
+            <p class="text-[#C5A059] tracking-[0.4em] uppercase text-xs md:text-sm mb-6 font-medium">Studio Brenda Di-Hali</p>
+            <h1 class="text-3xl md:text-7xl font-serif mb-8 leading-tight">Sua vida não precisa ser limitada pela dor.</h1>
+            <p class="text-base md:text-xl mb-12 text-white/90 font-light leading-relaxed">O Pilates transforma seu corpo e eleva sua qualidade de vida. Método personalizado para aliviar dores e proporcionar mais LIBERDADE.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5534996623620" target="_blank" onclick="trackWhatsApp()" class="gold-button text-lg">Agendar Aula Experimental Gratuita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="py-20 md:py-32 px-6 bg-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-serif mb-10 text-[#2D2D2D]">Muito além de um Studio de Pilates.</h2>
+            <div class="space-y-6 text-[#2D2D2D]/80 text-lg leading-relaxed">
+                <p>A Brenda não aprendeu sobre dor apenas nos livros. Com <strong>11 parafusos na coluna</strong>, ela viveu na própria pele os desafios e a reconstrução do próprio corpo.</p>
+                <p>Hoje, ela ajuda outras pessoas a recuperarem movimento e segurança com um método que une experiência real e excelência profissional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="py-20 md:py-32 px-6 bg-[#F9F7F2]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-[#C5A059] uppercase tracking-widest text-xs mb-4">Mais de 500 avaliações</p>
+                <h2 class="text-3xl md:text-5xl font-serif">O que dizem sobre o método</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex text-[#C5A059]">★★★★★</div>
+                        <span class="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-1 rounded font-bold uppercase">Verificada</span>
+                    </div>
+                    <p class="italic mb-8 text-sm md:text-base leading-relaxed">"As aulas me ajudaram muito com meu problema na lombar. Só de não precisar continuar tomando medicamento, foi uma das melhores coisas que me aconteceram."</p>
+                    <p class="font-serif font-bold text-lg">Lucas S.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex text-[#C5A059]">★★★★★</div>
+                        <span class="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-1 rounded font-bold uppercase">Verificada</span>
+                    </div>
+                    <p class="italic mb-8 text-sm md:text-base leading-relaxed">"A melhor de todas! Antes tinha bastante dores e com o tempo fui melhorando, hoje tenho muito mais mobilidade. Eles realmente se importam."</p>
+                    <p class="font-serif font-bold text-lg">Taiane R.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="flex text-[#C5A059]">★★★★★</div>
+                        <span class="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-1 rounded font-bold uppercase">Verificada</span>
+                    </div>
+                    <p class="italic mb-8 text-sm md:text-base leading-relaxed">"Melhor experiência da vida! O Studio e as instrutoras são excelentes. Não há na região uma equipe mais preparada."</p>
+                    <p class="font-serif font-bold text-lg">Mayara C.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto bg-[#2D2D2D] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-2xl">
+            <div class="md:w-1/2 p-12 md:p-20 text-white flex flex-col justify-center">
+                <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Seu corpo merece esse cuidado.</h2>
+                <p class="text-white/70 mb-10 text-lg">Agende sua aula experimental gratuita e descubra como o Pilates pode transformar sua rotina.</p>
+                <a href="https://wa.me/5534996623620" target="_blank" onclick="trackWhatsApp()" class="gold-button w-full text-lg">Quero minha aula gratuita</a>
+            </div>
+            <div class="md:w-1/2 min-h-[400px]">
+                <img src="https://lh3.googleusercontent.com/d/1pIifIQ2lB1ZSqB2lk4-GCvzuv9pHgzGi" class="w-full h-full object-cover" alt="Brenda">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 bg-[#F9F7F2] text-center border-t border-black/5">
+        <img src="https://i.ibb.co/QSSg0dz/Brown-Modern-Coffee-Shop-Logo-4.png" alt="Logo" class="h-16 mx-auto mb-8">
+        <p class="text-[10px] text-black/40 uppercase tracking-[0.3em]">© 2024 Studio Brenda Di-Hali. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5534996623620" target="_blank" onclick="trackWhatsApp()" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+</body>
+</html>
