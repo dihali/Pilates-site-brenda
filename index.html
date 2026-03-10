@@ -52,6 +52,70 @@
         .card { background: white; padding: 32px; border-radius: 24px; border: 1px solid rgba(197, 160, 89, 0.05); transition: all 0.5s; height: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: rgba(197, 160, 89, 0.2); }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+        /* SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+        .reveal-delay-6 { transition-delay: 0.6s; }
+
+        /* EFEITO KEN BURNS */
+        .hero-img {
+            animation: kenBurns 8s ease-out forwards;
+            transform-origin: center center;
+        }
+        @keyframes kenBurns {
+            0% { transform: scale(1.15); filter: brightness(0.4); }
+            100% { transform: scale(1); filter: brightness(0.6); }
+        }
+        .hero-content-anim {
+            animation: fadeUp 1.5s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Ken Burns effect */
+        @keyframes kenburns {
+            0% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        .hero-img {
+            animation: kenburns 8s ease-out forwards;
+            transform-origin: center center;
+        }
+
+        /* Fade up animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { opacity: 0; }
+        .fade-up.visible { animation: fadeUp 0.7s ease forwards; }
+
+        /* Depoimentos dots */
+        .dep-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #C5A059;
+            opacity: 0.3;
+            transition: opacity 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+        .dep-dot.active { opacity: 1; transform: scale(1.3); }
     </style>
 </head>
 <body class="antialiased">
@@ -74,10 +138,10 @@
     <!-- Hero Section -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20">
         <div class="absolute inset-0">
-            <img src="https://i.ibb.co/Wvkfx13y/brenda-di-hali-studio-de-pilates-ituiutaba-minas-gerais.jpg" class="w-full h-full object-cover" alt="Background">
+            <img src="https://i.ibb.co/Wvkfx13y/brenda-di-hali-studio-de-pilates-ituiutaba-minas-gerais.jpg" class="hero-img w-full h-full object-cover" alt="Background">
             <div class="absolute inset-0 bg-black/60"></div>
         </div>
-        <div class="relative z-10 text-center text-white px-6 max-w-4xl">
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl hero-content-anim">
             <p class="text-[#C5A059] tracking-[0.4em] uppercase text-xs md:text-sm mb-6 font-medium">Studio Brenda Di-Hali</p>
             <h1 class="text-4xl md:text-7xl font-serif mb-8 leading-tight">Sua vida não precisa ser limitada pela dor.</h1>
             <p class="text-base md:text-xl mb-12 text-white/90 font-light leading-relaxed max-w-2xl mx-auto">O Pilates transforma seu corpo e eleva sua qualidade de vida. Método personalizado para aliviar dores e proporcionar mais LIBERDADE.</p>
@@ -90,7 +154,7 @@
 
     <!-- Bio Section -->
     <section id="sobre" class="py-20 md:py-32 px-6 bg-white">
-        <div class="max-w-3xl mx-auto text-center">
+        <div class="max-w-3xl mx-auto text-center reveal">
             <h2 class="text-3xl md:text-5xl font-serif mb-10 text-[#2D2D2D] leading-tight">Muito além de um Studio de Pilates.</h2>
             <div class="space-y-6 text-[#2D2D2D]/80 text-lg leading-relaxed">
                 <p>A Brenda não aprendeu sobre dor apenas nos livros. Com <strong>11 parafusos na coluna</strong>, ela viveu na própria pele os desafios e a reconstrução do próprio corpo.</p>
@@ -103,49 +167,49 @@
     <!-- Benefícios Section -->
     <section id="beneficios" class="py-20 md:py-32 px-6 bg-[#F9F7F2]">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 reveal">
                 <p class="text-[#C5A059] uppercase tracking-[0.3em] text-xs mb-4">Para quem é</p>
                 <h2 class="text-3xl md:text-5xl font-serif text-[#2D2D2D]">Cada objetivo exige uma estratégia.</h2>
                 <div class="h-px bg-[#C5A059] w-16 mx-auto mt-8"></div>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card text-center group">
+                <div class="card text-center group reveal reveal-delay-1">
                     <div class="w-16 h-16 bg-[#F9F7F2] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#C5A059] transition-colors duration-500">
                         <svg viewBox="0 0 24 24" width="32" height="32" stroke="#C5A059" stroke-width="2" fill="none" class="group-hover:stroke-white transition-colors duration-500"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Dores Crônicas</h3>
                     <p class="text-sm text-black/60 leading-relaxed">Alívio estratégico para dores na coluna, articulações e tensões musculares persistentes.</p>
                 </div>
-                <div class="card text-center group">
+                <div class="card text-center group reveal reveal-delay-2">
                     <div class="w-16 h-16 bg-[#F9F7F2] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#C5A059] transition-colors duration-500">
                         <svg viewBox="0 0 24 24" width="32" height="32" stroke="#C5A059" stroke-width="2" fill="none" class="group-hover:stroke-white transition-colors duration-500"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"/></svg>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Gestantes</h3>
                     <p class="text-sm text-black/60 leading-relaxed">Acompanhamento seguro para uma gestação com mais conforto, leveza e preparo para o parto.</p>
                 </div>
-                <div class="card text-center group">
+                <div class="card text-center group reveal reveal-delay-3">
                     <div class="w-16 h-16 bg-[#F9F7F2] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#C5A059] transition-colors duration-500">
                         <svg viewBox="0 0 24 24" width="32" height="32" stroke="#C5A059" stroke-width="2" fill="none" class="group-hover:stroke-white transition-colors duration-500"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Idosos</h3>
                     <p class="text-sm text-black/60 leading-relaxed">Foco em equilíbrio, autonomia e fortalecimento para um envelhecimento ativo e seguro.</p>
                 </div>
-                <div class="card text-center group">
+                <div class="card text-center group reveal reveal-delay-4">
                     <div class="w-16 h-16 bg-[#F9F7F2] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#C5A059] transition-colors duration-500">
                         <svg viewBox="0 0 24 24" width="32" height="32" stroke="#C5A059" stroke-width="2" fill="none" class="group-hover:stroke-white transition-colors duration-500"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Atletas</h3>
                     <p class="text-sm text-black/60 leading-relaxed">Melhora de performance, mobilidade e prevenção de lesões para quem exige o máximo do corpo.</p>
                 </div>
-                <div class="card text-center group">
+                <div class="card text-center group reveal reveal-delay-5">
                     <div class="w-16 h-16 bg-[#F9F7F2] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#C5A059] transition-colors duration-500">
                         <svg viewBox="0 0 24 24" width="32" height="32" stroke="#C5A059" stroke-width="2" fill="none" class="group-hover:stroke-white transition-colors duration-500"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
                     <h3 class="text-xl font-serif mb-4">Reabilitação</h3>
                     <p class="text-sm text-black/60 leading-relaxed">Recuperação pós-cirúrgica ou de lesões com técnica precisa e respeito aos limites biológicos.</p>
                 </div>
-                <div class="card text-center group">
+                <div class="card text-center group reveal reveal-delay-6">
                     <div class="w-16 h-16 bg-[#F9F7F2] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#C5A059] transition-colors duration-500">
                         <svg viewBox="0 0 24 24" width="32" height="32" stroke="#C5A059" stroke-width="2" fill="none" class="group-hover:stroke-white transition-colors duration-500"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
@@ -162,7 +226,7 @@
             <img src="https://lh3.googleusercontent.com/d/1qz8RNYmzFqutf5ibN80OTp-45VtRleD2" class="w-full h-full object-cover" alt="Meditação">
             <div class="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
         </div>
-        <div class="relative z-10 text-center text-white max-w-4xl">
+        <div class="relative z-10 text-center text-white max-w-4xl reveal">
             <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-8 border border-white/20">
                 <svg viewBox="0 0 24 24" width="32" height="32" stroke="#C5A059" stroke-width="2" fill="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </div>
@@ -180,24 +244,20 @@
     <!-- Depoimentos -->
     <section id="depoimentos" class="py-20 md:py-32 px-6 bg-[#F9F7F2]">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 reveal">
                 <p class="text-[#C5A059] uppercase tracking-[0.3em] text-xs mb-4">Mais de 500 avaliações</p>
                 <h2 class="text-3xl md:text-5xl font-serif text-[#2D2D2D]">O que dizem sobre o método Brenda Di-Hali</h2>
                 <div class="h-px bg-[#C5A059] w-16 mx-auto mt-8"></div>
             </div>
             
-            <div class="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
-                <div class="min-w-[85vw] md:min-w-0 snap-center bg-white p-10 rounded-2xl shadow-sm border border-black/5 flex flex-col">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="flex text-[#C5A059] gap-1">★★★★★</div>
-                        <span class="text-[10px] bg-emerald-50 text-emerald-600 px-2 py-1 rounded font-bold uppercase tracking-wider">Verificada</span>
-                    </div>
-                    <p class="italic mb-8 text-[#2D2D2D]/80 leading-relaxed flex-grow">"As aulas me ajudaram muito com meu problema na lombar. Só de não precisar continuar tomando medicamento e usando cinta, foi uma das melhores coisas que me aconteceram."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-[#F9F7F2] flex items-center justify-center text-[#C5A059] font-serif font-bold">L</div>
-                        <p class="font-serif font-bold text-lg text-[#2D2D2D]">Lucas S.</p>
-                    </div>
-                </div>
+            <!-- Indicador de scroll mobile -->
+            <div class="flex justify-center gap-2 mb-6 md:hidden" id="dotsContainer">
+                <span class="w-2 h-2 rounded-full bg-[#C5A059]"></span>
+                <span class="w-2 h-2 rounded-full bg-[#C5A059]/30"></span>
+                <span class="w-2 h-2 rounded-full bg-[#C5A059]/30"></span>
+            </div>
+            <div class="flex md:grid md:grid-cols-3 gap-8 overflow-x-auto pb-8 md:pb-0 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0" id="depoimentosSlider">
+                <div class="min-w-[85vw] md:min-w-0 snap-center bg-white p-10 rounded-2xl shadow-sm border border-black/5 flex flex-col reveal reveal-delay-1">
                 <div class="min-w-[85vw] md:min-w-0 snap-center bg-white p-10 rounded-2xl shadow-sm border border-black/5 flex flex-col">
                     <div class="flex justify-between items-start mb-6">
                         <div class="flex text-[#C5A059] gap-1">★★★★★</div>
@@ -226,7 +286,7 @@
 
     <!-- CTA Final -->
     <section class="py-20 px-6 bg-white">
-        <div class="max-w-5xl mx-auto bg-[#2D2D2D] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-2xl">
+        <div class="max-w-5xl mx-auto bg-[#2D2D2D] rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row shadow-2xl reveal">
             <div class="md:w-1/2 p-12 md:p-20 text-white flex flex-col justify-center">
                 <h2 class="text-3xl md:text-5xl font-serif mb-6 leading-tight">Seu corpo merece esse cuidado.</h2>
                 <p class="text-white/70 mb-10 text-lg leading-relaxed">Agende sua aula experimental gratuita e descubra como o Pilates pode transformar sua rotina.</p>
@@ -280,7 +340,7 @@
 
         <div class="max-w-7xl mx-auto pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-black/40 uppercase tracking-widest text-center md:text-left">
             <p>© 2024 Studio Brenda Di-Hali. Todos os direitos reservados.</p>
-            <p>Desenvolvido com sofisticação</p>
+            <p>Desenvolvido por <strong style="color:#C5A059">DI-HALI DIGITAL</strong></p>
         </div>
     </footer>
 
@@ -288,6 +348,33 @@
     <a href="https://wa.me/5534996623620" target="_blank" onclick="trackWhatsApp()" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform z-50">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
+
+    <!-- Scroll Reveal -->
+    <script>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+
+    <!-- Script dots depoimentos mobile -->
+    <script>
+        const slider = document.getElementById('depoimentosSlider');
+        const dots = document.querySelectorAll('#dotsContainer span');
+        if (slider && dots.length) {
+            slider.addEventListener('scroll', () => {
+                const index = Math.round(slider.scrollLeft / slider.offsetWidth);
+                dots.forEach((d, i) => {
+                    d.style.backgroundColor = i === index ? '#C5A059' : 'rgba(197,160,89,0.3)';
+                });
+            });
+        }
+    </script>
 
 </body>
 </html>
