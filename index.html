@@ -117,6 +117,10 @@
         .hero-img {
             animation: kenBurns 8s ease-out forwards;
             transform-origin: center center;
+            object-position: center 20%;
+        }
+        @media (max-width: 768px) {
+            .hero-img { object-position: top; }
         }
         @keyframes kenBurns {
             0% { transform: scale(1.08); }
@@ -245,19 +249,42 @@
     </div>
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20">
-        <div class="absolute inset-0">
-            <img src="https://res.cloudinary.com/dwdqzu2sq/image/upload/v1774316670/WhatsApp_Image_2026-02-22_at_16.25.22_3_zx4tku.jpg" class="hero-img w-full h-full object-cover" alt="Background" style="filter: brightness(0.55);">
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20" style="background:#1e1e1e;">
+
+        <!-- Foto de fundo so no mobile -->
+        <div class="absolute inset-0 md:hidden">
+            <img src="https://res.cloudinary.com/dwdqzu2sq/image/upload/v1774316670/WhatsApp_Image_2026-02-22_at_16.25.22_3_zx4tku.jpg" class="hero-img w-full h-full object-cover object-top" alt="Background" style="filter: brightness(0.55);">
         </div>
-        <div class="relative z-10 text-center text-white px-6 max-w-4xl hero-content-anim">
-            <p class="text-[#C5A059] tracking-[0.4em] uppercase text-xs md:text-sm mb-6 font-medium" style="text-shadow: 0 1px 8px rgba(0,0,0,0.6);">Studio Brenda Di-Hali</p>
-            <h1 class="text-4xl md:text-7xl font-serif mb-8 leading-tight" style="text-shadow: 0 2px 24px rgba(0,0,0,0.6);">Sua vida não precisa ser limitada pela dor.</h1>
-            <p class="text-base md:text-xl mb-12 text-white/90 font-light leading-relaxed max-w-2xl mx-auto" style="text-shadow: 0 1px 12px rgba(0,0,0,0.5);">O Pilates transforma seu corpo e eleva sua qualidade de vida. Método personalizado para aliviar dores e proporcionar mais LIBERDADE.</p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
+
+        <!-- Desktop: split texto esquerda / foto direita -->
+        <div class="relative z-10 w-full min-h-screen hidden md:flex">
+            <div class="w-1/2 flex items-center justify-end pr-16 pl-12" style="background:#1e1e1e;">
+                <div class="max-w-lg hero-content-anim">
+                    <p class="text-[#C5A059] tracking-[0.4em] uppercase text-sm mb-6 font-medium">Studio Brenda Di-Hali</p>
+                    <h1 class="text-5xl xl:text-6xl font-serif mb-8 leading-tight text-white">Sua vida não precisa ser limitada pela dor.</h1>
+                    <p class="text-lg mb-12 text-white/70 font-light leading-relaxed">O Pilates transforma seu corpo e eleva sua qualidade de vida. Método personalizado para aliviar dores e proporcionar mais LIBERDADE.</p>
+                    <div class="flex gap-4">
+                        <a href="https://wa.me/5534996623620?text=Ola!+Vi+seu+site+e+quero+agendar+minha+aula+experimental+gratuita!" onclick="trackWhatsApp()" target="_blank" class="gold-button text-base px-8">Agendar Aula Gratuita</a>
+                        <a href="https://wa.me/5534996623620?text=Ola!+Vi+seu+site+e+quero+agendar+minha+aula+experimental+gratuita!" onclick="trackWhatsApp()" target="_blank" class="outline-gold-button text-base px-8">WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 relative overflow-hidden">
+                <img src="https://res.cloudinary.com/dwdqzu2sq/image/upload/v1774316670/WhatsApp_Image_2026-02-22_at_16.25.22_3_zx4tku.jpg" class="hero-img w-full h-full object-cover object-center" alt="Brenda Di-Hali">
+            </div>
+        </div>
+
+        <!-- Mobile: conteudo sobre a foto de fundo -->
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto hero-content-anim md:hidden">
+            <p class="text-[#C5A059] tracking-[0.4em] uppercase text-xs mb-6 font-medium" style="text-shadow: 0 1px 8px rgba(0,0,0,0.6);">Studio Brenda Di-Hali</p>
+            <h1 class="text-4xl font-serif mb-8 leading-tight" style="text-shadow: 0 2px 24px rgba(0,0,0,0.6);">Sua vida não precisa ser limitada pela dor.</h1>
+            <p class="text-base mb-12 text-white/90 font-light leading-relaxed" style="text-shadow: 0 1px 12px rgba(0,0,0,0.5);">O Pilates transforma seu corpo e eleva sua qualidade de vida. Método personalizado para aliviar dores e proporcionar mais LIBERDADE.</p>
+            <div class="flex flex-col gap-4">
                 <a href="https://wa.me/5534996623620?text=Ola!+Vi+seu+site+e+quero+agendar+minha+aula+experimental+gratuita!" onclick="trackWhatsApp()" target="_blank" class="gold-button text-lg px-10">Agendar Aula Gratuita</a>
                 <a href="https://wa.me/5534996623620?text=Ola!+Vi+seu+site+e+quero+agendar+minha+aula+experimental+gratuita!" onclick="trackWhatsApp()" target="_blank" class="outline-gold-button border-white text-white hover:bg-white hover:text-[#C5A059] text-lg px-10">WhatsApp</a>
             </div>
         </div>
+
     </section>
 
     <!-- Marquee -->
