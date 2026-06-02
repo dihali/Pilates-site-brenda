@@ -256,9 +256,15 @@
             <img src="/images/hero-mobile.webp" class="hero-img w-full h-full object-cover object-center" alt="Background" style="filter: brightness(0.55);">
         </div>
 
-        <!-- Desktop: split texto esquerda / foto direita -->
-        <div class="relative z-10 w-full min-h-screen hidden md:flex">
-            <div class="w-1/2 flex items-center justify-end pr-16 pl-12" style="background:#1e1e1e;">
+        <!-- Desktop: fundo completo com texto overlay -->
+        <div class="relative z-10 w-full min-h-screen hidden md:flex items-center overflow-hidden">
+            <!-- Imagem de fundo full screen -->
+            <div class="absolute inset-0">
+                <img src="/images/hero-desktop.webp" class="hero-img w-full h-full object-cover object-center" alt="Brenda Di-Hali">
+                <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.75) 35%, rgba(0,0,0,0.15) 65%, rgba(0,0,0,0) 100%);"></div>
+            </div>
+            <!-- Texto sobre a imagem -->
+            <div class="relative z-10 w-1/2 flex items-center justify-end pr-16 pl-12">
                 <div class="max-w-lg hero-content-anim">
                     <p class="text-[#C5A059] tracking-[0.4em] uppercase text-sm mb-6 font-medium">Studio Brenda Di-Hali</p>
                     <h1 class="text-5xl xl:text-6xl font-serif mb-8 leading-tight text-white">Sua vida não precisa ser limitada pela dor.</h1>
@@ -268,9 +274,6 @@
                         <a href="https://wa.me/5534996623620?text=Ola!+Vi+seu+site+e+quero+agendar+minha+aula+experimental+gratuita!" onclick="trackWhatsApp()" target="_blank" class="outline-gold-button text-base px-8">WhatsApp</a>
                     </div>
                 </div>
-            </div>
-            <div class="w-1/2 relative overflow-hidden">
-                <img src="/images/hero-desktop.webp" class="hero-img w-full h-full object-cover object-center" alt="Brenda Di-Hali">
             </div>
         </div>
 
