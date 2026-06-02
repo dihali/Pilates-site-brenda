@@ -252,8 +252,8 @@
     <section id="inicio" class="relative min-h-screen flex items-center pt-20" style="background:#1e1e1e;">
 
         <!-- Foto de fundo so no mobile -->
-        <div class="absolute inset-0 md:hidden">
-            <img src="/images/hero-mobile.webp" class="hero-img w-full h-full object-cover object-top" alt="Background" style="filter: brightness(0.55);">
+        <div class="absolute inset-0 md:hidden overflow-hidden">
+            <img src="/images/hero-mobile.webp" class="hero-img w-full h-full object-cover object-center" alt="Background" style="filter: brightness(0.55);">
         </div>
 
         <!-- Desktop: split texto esquerda / foto direita -->
@@ -419,10 +419,11 @@
                 <div class="h-px bg-[#C5A059] w-16 mx-auto mt-8"></div>
             </div>
             
-            <div class="flex justify-center reveal">
+            <div class="flex justify-center reveal" id="videoWrap">
                 <div class="rounded-3xl overflow-hidden shadow-2xl w-full" style="max-width: 380px; aspect-ratio: 9/16;">
                     <iframe
-                        src="https://drive.google.com/file/d/1TXw4zg435L-Qb_42RQpPRpj6c8P80Eao/preview"
+                        id="depoimentoVideo"
+                        data-src="https://drive.google.com/file/d/1TXw4zg435L-Qb_42RQpPRpj6c8P80Eao/preview"
                         class="w-full h-full"
                         style="border: none;"
                         allow="autoplay"
@@ -443,7 +444,7 @@
                 <p class="text-white/40 text-[10px] mt-6 uppercase tracking-widest text-center">Vagas limitadas para acompanhamento personalizado.</p>
             </div>
             <div class="md:w-1/2 min-h-[400px]">
-                <img src="/images/studio-cheio.webp" class="w-full h-full object-cover object-center" alt="Studio Brenda Di-Hali">
+                <img src="/images/studio-cheio.webp" class="w-full h-full object-cover object-top" alt="Studio Brenda Di-Hali">
             </div>
         </div>
     </section>
@@ -494,7 +495,7 @@
         <div class="max-w-7xl mx-auto mb-12 reveal">
             <div class="rounded-3xl overflow-hidden shadow-sm border border-black/5" style="height: 300px;">
                 <iframe
-                    src="https://maps.google.com/maps?q=-18.9716,-49.4647&output=embed&z=17"
+                    src="https://maps.google.com/maps?q=Studio+Brenda+Di-Hali+Pilates+Ituiutaba+MG&output=embed&z=17"
                     class="w-full h-full"
                     style="border: none;"
                     allowfullscreen
@@ -542,6 +543,21 @@
             el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(2.5)';follower.style.transform='scale(1.5)';});
             el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';follower.style.transform='scale(1)';});
         });
+    </script>
+
+    <!-- Autoplay vídeo no scroll -->
+    <script>
+        const videoIframe = document.getElementById('depoimentoVideo');
+        if (videoIframe) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !videoIframe.src) {
+                        videoIframe.src = videoIframe.dataset.src;
+                    }
+                });
+            }, { threshold: 0.5 });
+            videoObserver.observe(document.getElementById('videoWrap'));
+        }
     </script>
 
     <!-- Script Menu Hambúrguer -->
