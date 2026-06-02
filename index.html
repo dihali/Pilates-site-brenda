@@ -424,14 +424,15 @@
             
             <div class="flex justify-center reveal" id="videoWrap">
                 <div class="rounded-3xl overflow-hidden shadow-2xl w-full" style="max-width: 380px; aspect-ratio: 9/16;">
-                    <iframe
+                    <video
                         id="depoimentoVideo"
-                        data-src="https://drive.google.com/file/d/1TXw4zg435L-Qb_42RQpPRpj6c8P80Eao/preview"
-                        class="w-full h-full"
-                        style="border: none;"
-                        allow="autoplay"
-                        allowfullscreen>
-                    </iframe>
+                        class="w-full h-full object-cover"
+                        src="https://res.cloudinary.com/dwdqzu2sq/video/upload/v1780426848/Design_sem_nome_1_kzkeiv.mp4"
+                        muted
+                        playsinline
+                        controls
+                        preload="metadata">
+                    </video>
                 </div>
             </div>
         </div>
@@ -550,12 +551,15 @@
 
     <!-- Autoplay vídeo no scroll -->
     <script>
-        const videoIframe = document.getElementById('depoimentoVideo');
-        if (videoIframe) {
+        const depoVideo = document.getElementById('depoimentoVideo');
+        if (depoVideo) {
             const videoObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting && !videoIframe.src) {
-                        videoIframe.src = videoIframe.dataset.src;
+                    if (entry.isIntersecting) {
+                        depoVideo.muted = true;
+                        depoVideo.play();
+                    } else {
+                        depoVideo.pause();
                     }
                 });
             }, { threshold: 0.5 });
