@@ -429,16 +429,20 @@
             </div>
             
             <div class="flex justify-center reveal" id="videoWrap">
-                <div class="rounded-3xl overflow-hidden shadow-2xl w-full" style="max-width: 380px; aspect-ratio: 9/16;">
+                <div class="rounded-3xl overflow-hidden shadow-2xl w-full relative" style="max-width: 380px; aspect-ratio: 9/16;">
                     <video
                         id="depoimentoVideo"
                         class="w-full h-full object-cover"
                         src="https://res.cloudinary.com/dwdqzu2sq/video/upload/v1780426848/Design_sem_nome_1_kzkeiv.mp4"
                         muted
                         playsinline
-                        controls
                         preload="metadata">
                     </video>
+                    <div id="unmuteBtn" onclick="unmuteVideo()" class="absolute inset-0 flex items-end justify-center pb-8 cursor-pointer" style="display:none;">
+                        <div class="bg-black/60 backdrop-blur-sm text-white px-6 py-3 rounded-full flex items-center gap-2 text-sm font-semibold" style="border: 1px solid rgba(197,160,89,0.5);">
+                            🔇 Toque para ouvir
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -560,14 +564,25 @@
     <!-- Autoplay vídeo no scroll -->
     <script>
         const depoVideo = document.getElementById('depoimentoVideo');
+        const unmuteBtn = document.getElementById('unmuteBtn');
+
+        function unmuteVideo() {
+            if (depoVideo) {
+                depoVideo.muted = false;
+                unmuteBtn.style.display = 'none';
+            }
+        }
+
         if (depoVideo) {
             const videoObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         depoVideo.muted = true;
                         depoVideo.play();
+                        unmuteBtn.style.display = 'flex';
                     } else {
                         depoVideo.pause();
+                        unmuteBtn.style.display = 'none';
                     }
                 });
             }, { threshold: 0.5 });
